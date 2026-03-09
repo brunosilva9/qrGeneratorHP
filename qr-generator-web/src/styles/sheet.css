@@ -1,0 +1,87 @@
+.card{
+
+  width:180px;
+  height:230px;
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:space-between;
+
+}
+
+/* wrapper para centrar */
+
+.qrWrapper{
+  width:100%;
+  display:flex;
+  justify-content:center;
+}
+
+/* contenedor del QR */
+
+.qrContainer{
+
+  width:150px;
+  height:150px;
+
+  background:white;
+
+  border:2px solid #d0d0d0;
+  border-radius:14px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  box-shadow:0 3px 6px rgba(0,0,0,0.08);
+
+}
+
+/* imagen QR */
+
+.qrImage{
+
+  width:120px;
+  height:120px;
+
+  object-fit:contain;
+
+}
+
+/* LABEL */
+
+.labelBox{
+
+  width:170px;
+  height:44px;
+
+  border:2px solid #4b5a6a;
+  border-radius:8px;
+
+  background:#f2f2f2;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  gap:8px;
+
+}
+
+.labelLogo{
+
+  width:18px;
+  height:18px;
+
+}
+
+.labelText{
+
+  font-size:18px;
+  font-weight:700;
+  letter-spacing:1px;
+
+  color:#2c3e50;
+
+}
