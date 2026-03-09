@@ -21,7 +21,8 @@ export async function exportPdf(cards){
   const offsetX = (pageW - cols * cardW) / 2
   const offsetY = (pageH - rows * cardH) / 2
 
-  const logo = await fetch("/logo.png").then(r=>r.blob())
+const logo = await fetch(`${import.meta.env.BASE_URL}logo.png`)
+  .then(r => r.blob())  
   const logoURL = URL.createObjectURL(logo)
 
   cards.forEach((card,i)=>{

@@ -6,23 +6,17 @@ export default function QrCard({ qr, code }) {
     <div className="card">
 
       <div className="qrBox">
-
-        <div className="qrBorder">
-
-          <img
-            src={qr}
-            alt={code}
-            className="qrImage"
-          />
-
-        </div>
-
+        <img
+          src={qr}
+          alt={code}
+          className="qrImage"
+        />
       </div>
 
       <div className="labelBox">
 
         <img
-          src="/logo.png"
+          src={`${import.meta.env.BASE_URL}logo.png`}
           alt="logo"
           className="labelLogo"
         />
