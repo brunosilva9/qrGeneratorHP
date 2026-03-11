@@ -66,3 +66,106 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+/* ===== NUEVOS ESTILOS PARA LAS TARJETAS QR ===== */
+
+/* Contenedor principal de la tarjeta */
+.card {
+  background-color: #ffffff;
+  border-radius: 15px; /* Bordes suaves para la tarjeta */
+  padding: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  transition: transform 0.2s ease;
+  border: 1px solid #e0e0e0;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Contenedor del QR */
+.qrBox {
+  background-color: #f8f8f8;
+  border-radius: 12px; /* Bordes suaves para el contenedor del QR */
+  padding: 0.75rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  border: 1px solid #eaeaea;
+}
+
+/* Imagen QR */
+.qrImage {
+  width: 100%;
+  max-width: 150px;
+  height: auto;
+  display: block;
+  border-radius: 8px; /* Bordes ligeramente suaves para la imagen misma */
+}
+
+/* Contenedor del label */
+.labelBox {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background-color: #f0f0f0;
+  border-radius: 25px; /* Bordes muy suaves para el label (tipo píldora) */
+  padding: 0.5rem 1rem;
+  width: fit-content;
+  border: 1px solid #d0d0d0;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* Logo dentro del label */
+.labelLogo {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  border-radius: 50%; /* El logo con bordes circulares */
+}
+
+/* Texto del label */
+.labelText {
+  font-weight: 600;
+  color: #333333;
+  font-size: 0.95rem;
+  letter-spacing: 0.3px;
+}
+
+/* Contenedor de la hoja (grid) */
+.sheet {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Ajustes para modo oscuro */
+@media (prefers-color-scheme: dark) {
+  .card {
+    background-color: #2a2a2a;
+    border-color: #444;
+  }
+  
+  .qrBox {
+    background-color: #333;
+    border-color: #555;
+  }
+  
+  .labelBox {
+    background-color: #3a3a3a;
+    border-color: #555;
+    box-shadow: inset 0 1px 3px rgba(255, 255, 255, 0.05);
+  }
+  
+  .labelText {
+    color: #f0f0f0;
+  }
+}
