@@ -1,18 +1,17 @@
 export function generateCodes(prefix, start, end) {
-
   const clean = prefix
     .toUpperCase()
-    .replace(/[^A-Z]/g,"")
-    .slice(0,2)
+    .replace(/[^A-Z]/g, "")
+    .slice(0, 2);
 
-  const codes = []
+  const codes = [];
+  const startNum = Number(start);
+  const endNum = Number(end);
 
-  for(let i=start;i<=end;i++){
-
-    const num = String(i).padStart(2,"0")
-
-    codes.push(`${clean}-${num}`)
+  for (let i = startNum; i <= endNum; i++) {
+    const code = `${clean}-${i}`;
+    codes.push(code);
   }
 
-  return codes
+  return codes;
 }

@@ -25,6 +25,32 @@ export async function exportPdf(cards){
     .then(r => r.blob())  
   const logoURL = URL.createObjectURL(logo)
 
+  // Dibujar líneas de corte en la primera página (y en cada página nueva)
+  const drawCutLines = () => {
+    pdf.setDrawColor(180, 180, 180)
+    pdf.setLineWidth(0.15)
+    pdf.setLineDashPattern([2, 2], 0)
+
+    // Líneas verticales (borde izquierdo, entre columnas, borde derecho)
+    for (let c = 0; c <= cols; c++) {
+      const lineX = offsetX + (c * cardW)
+      pdf.line(lineX, 0, lineX, pageH)
+    }
+
+    // Líneas horizontales (borde superior, entre filas, borde inferior)
+    for (let r = 0; r <= rows; r++) {
+      const lineY = offsetY + (r * cardH)
+      pdf.line(0, lineY, pageW, lineY)
+    }
+
+    // Restauramos el estilo para las tarjetas
+    pdf.setLineDashPattern([], 0)
+    pdf.setLineWidth(0.3)
+  }
+
+  // Dibujar líneas de corte en la primera página
+  drawCutLines()
+
   cards.forEach((card,i)=>{
 
     const pageIndex = Math.floor(i / perPage)
@@ -32,6 +58,8 @@ export async function exportPdf(cards){
 
     if(i !== 0 && position === 0){
       pdf.addPage()
+      // Dibujar líneas de corte en cada nueva página
+      drawCutLines()
     }
 
     const col = position % cols
@@ -72,7 +100,7 @@ export async function exportPdf(cards){
       labelY,
       labelW,
       labelH,
-      3, // Radio más suave para que sea un rectángulo con bordes solo suavizados
+      3,
       3,
       'FD'
     )
@@ -81,7 +109,7 @@ export async function exportPdf(cards){
     pdf.addImage(
       logoURL,
       "PNG",
-      x+9, // Ajustado para que quede bien dentro del label
+      x+9,
       labelY+3,
       10,
       10
@@ -92,7 +120,7 @@ export async function exportPdf(cards){
     pdf.setTextColor(50, 50, 50)
     pdf.text(
       card.code,
-      x + 22, // Posición ajustada para que quede junto al logo
+      x + 22,
       labelY + 11
     )
 
