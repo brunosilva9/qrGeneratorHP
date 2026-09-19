@@ -126,5 +126,15 @@ export async function exportPdf(cards){
 
   })
 
-  pdf.save("qr-cards.pdf")
+  const firstCode = cards[0].code
+  const lastCode = cards[cards.length - 1].code
+  const prefix = firstCode.split("-")[0]
+  const firstNum = firstCode.split("-")[1]
+  const lastNum = lastCode.split("-")[1]
+
+  const fileName = firstNum === lastNum
+    ? `QR_${prefix}-${firstNum}.pdf`
+    : `QR_${prefix}-${firstNum}_a_${prefix}-${lastNum}.pdf`
+
+  pdf.save(fileName)
 }
