@@ -1,4 +1,5 @@
 #root {
+  width: 100%;
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
@@ -44,6 +45,7 @@
   margin-bottom: 2rem;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.1);
+  min-width: 0;
 }
 
 .input-group {
@@ -52,6 +54,7 @@
   align-items: flex-start;
   gap: 0.5rem;
   flex: 1;
+  min-width: 0;
 }
 
 .input-group label {
@@ -64,6 +67,7 @@
 
 .input-group input {
   width: 100%;
+  min-width: 0;
   padding: 0.8rem 1rem;
   border: 2px solid #e0e0e0;
   border-radius: 12px;
@@ -89,6 +93,7 @@
   display: flex;
   gap: 1rem;
   margin: 1.5rem 0;
+  min-width: 0;
 }
 
 /* ===== BOTONES ===== */
@@ -205,6 +210,8 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  max-width: 100%;
+  word-break: break-word;
 }
 
 /* ===== PREVIEW ===== */
@@ -370,5 +377,38 @@
   
   .empty-state h3 {
     font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 420px) {
+  #root {
+    padding: 0.75rem;
+  }
+
+  .controls-container {
+    padding: 1.25rem 1rem;
+    border-radius: 14px;
+  }
+
+  .app-header h1 {
+    font-size: 1.6rem;
+  }
+
+  .app-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .app-logo {
+    width: 64px;
+    height: 64px;
+  }
+
+  .primary-button, .secondary-button, .tertiary-button {
+    padding: 0.7rem 1.2rem;
+    font-size: 0.95rem;
+  }
+
+  .empty-state {
+    padding: 2.5rem 1rem;
   }
 }
